@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "S2KpoG2q5iukoVzB2zL0KUuX8b05VbPNVU2s/jBU+hgIZB7XxgatLEZibIJKiluDBeK45KBafiWcxRiymnvhWQ==",
+  "success": true,
+  "projectFilePath": "D:\\Musical Shop\\MusicalShop.Data.Models\\MusicalShop.Data.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.14\\microsoft.aspnetcore.cryptography.internal.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.14\\microsoft.aspnetcore.cryptography.keyderivation.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.14\\microsoft.extensions.caching.abstractions.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.14\\microsoft.extensions.configuration.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.14\\microsoft.extensions.configuration.abstractions.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.14\\microsoft.extensions.configuration.binder.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.14\\microsoft.extensions.dependencyinjection.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.14\\microsoft.extensions.dependencyinjection.abstractions.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.identity.core\\3.1.14\\microsoft.extensions.identity.core.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.14\\microsoft.extensions.identity.stores.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.logging\\3.1.14\\microsoft.extensions.logging.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.14\\microsoft.extensions.logging.abstractions.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.options\\3.1.14\\microsoft.extensions.options.3.1.14.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.14\\microsoft.extensions.primitives.3.1.14.nupkg.sha512"
+  ],
+  "logs": []
+}

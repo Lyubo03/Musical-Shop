@@ -1,0 +1,9 @@
+D:\Musical Shop\Stopify.Services.Models\bin\Debug\netcoreapp3.1\Stopify.Services.Models.deps.json
+D:\Musical Shop\Stopify.Services.Models\bin\Debug\netcoreapp3.1\Stopify.Services.Models.dll
+D:\Musical Shop\Stopify.Services.Models\bin\Debug\netcoreapp3.1\Stopify.Services.Models.pdb
+D:\Musical Shop\Stopify.Services.Models\obj\Debug\netcoreapp3.1\Stopify.Services.Models.csprojAssemblyReference.cache
+D:\Musical Shop\Stopify.Services.Models\obj\Debug\netcoreapp3.1\Stopify.Services.Models.AssemblyInfoInputs.cache
+D:\Musical Shop\Stopify.Services.Models\obj\Debug\netcoreapp3.1\Stopify.Services.Models.AssemblyInfo.cs
+D:\Musical Shop\Stopify.Services.Models\obj\Debug\netcoreapp3.1\Stopify.Services.Models.csproj.CoreCompileInputs.cache
+D:\Musical Shop\Stopify.Services.Models\obj\Debug\netcoreapp3.1\Stopify.Services.Models.dll
+D:\Musical Shop\Stopify.Services.Models\obj\Debug\netcoreapp3.1\Stopify.Services.Models.pdb

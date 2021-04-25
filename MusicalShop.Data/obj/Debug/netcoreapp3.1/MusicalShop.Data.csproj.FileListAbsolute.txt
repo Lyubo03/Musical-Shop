@@ -1,0 +1,12 @@
+D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Data.deps.json
+D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Data.dll
+D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Data.pdb
+D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.csprojAssemblyReference.cache
+D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.AssemblyInfoInputs.cache
+D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.AssemblyInfo.cs
+D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.csproj.CoreCompileInputs.cache
+D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.dll
+D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.pdb
+D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Data.Models.dll
+D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Data.Models.pdb
+D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.csproj.CopyComplete

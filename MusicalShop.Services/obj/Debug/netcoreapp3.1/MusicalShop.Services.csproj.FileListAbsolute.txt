@@ -1,0 +1,20 @@
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Services.deps.json
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Services.dll
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Services.pdb
+D:\Musical Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.csprojAssemblyReference.cache
+D:\Musical Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.AssemblyInfoInputs.cache
+D:\Musical Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.AssemblyInfo.cs
+D:\Musical Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.csproj.CoreCompileInputs.cache
+D:\Musical Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.dll
+D:\Musical Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.pdb
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Data.Models.dll
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Services.Mapping.dll
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Services.Models.dll
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Services.Models.pdb
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Data.Models.pdb
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Services.Mapping.pdb
+D:\Musical Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.csproj.CopyComplete
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Data.dll
+D:\Musical Shop\MusicalShop.Services\bin\Debug\netcoreapp3.1\MusicalShop.Data.pdb
+D:\Repo_MusicShop\Musical-Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.dll
+D:\Repo_MusicShop\Musical-Shop\MusicalShop.Services\obj\Debug\netcoreapp3.1\MusicalShop.Services.pdb
