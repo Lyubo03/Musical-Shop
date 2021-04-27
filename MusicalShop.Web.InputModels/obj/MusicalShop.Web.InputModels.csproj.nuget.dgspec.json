@@ -32,7 +32,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Musical Shop\\MusicalShop.Services.Mapping\\MusicalShop.Services.Mapping.csproj": {
+                "projectPath": "D:\\Musical Shop\\MusicalShop.Services.Mapping\\MusicalShop.Services.Mapping.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

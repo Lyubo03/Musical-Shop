@@ -16,3 +16,6 @@ D:\Repo_MusicShop\Musical-Shop\MusicalShop.Data.Models\obj\Debug\netcoreapp3.1\M
 D:\Repo_MusicShop\Musical-Shop\MusicalShop.Data.Models\obj\Debug\netcoreapp3.1\MusicalShop.Data.Models.csproj.CoreCompileInputs.cache
 D:\Repo_MusicShop\Musical-Shop\MusicalShop.Data.Models\obj\Debug\netcoreapp3.1\MusicalShop.Data.Models.dll
 D:\Repo_MusicShop\Musical-Shop\MusicalShop.Data.Models\obj\Debug\netcoreapp3.1\MusicalShop.Data.Models.pdb
+D:\Musical Shop\MusicalShop.Data.Models\bin\Debug\netcoreapp3.1\MusicalShop.Services.Mapping.dll
+D:\Musical Shop\MusicalShop.Data.Models\bin\Debug\netcoreapp3.1\MusicalShop.Services.Mapping.pdb
+D:\Musical Shop\MusicalShop.Data.Models\obj\Debug\netcoreapp3.1\MusicalShop.Data.Models.csproj.CopyComplete

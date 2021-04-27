@@ -4,9 +4,11 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using MusicalShop.Services;
+    using MusicalShop.Services.Mapping;
     using MusicalShop.Services.Models;
     using MusicalShop.Web.InputModels.Product;
     using MusicalShop.Web.ViewModels;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -25,9 +27,9 @@
         {
             List<ProductTypeViewModel> productTypes = await productService.GetAllProductTypes()
                 .Select(x => new ProductTypeViewModel
-            {
-                Name = x.Name
-            }).ToListAsync();
+                {
+                    Name = x.Name
+                }).ToListAsync();
 
             ViewData["types"] = productTypes;
 
@@ -52,6 +54,7 @@
             var pictureUrl = await this.cloudinaryService.UploadPictureAsync(model.Picture, model.Name);
 
             var productServiceModel = Mapper.Map<ProductServiceModel>(model);
+            productServiceModel.Id = Guid.NewGuid().ToString();
             productServiceModel.Picture = pictureUrl;
 
             await productService.CreateProductAsync(productServiceModel);
@@ -68,8 +71,42 @@
         [HttpPost("/Administration/Product/Type/Create")]
         public async Task<IActionResult> CreateType(ProductTypeCreateInputModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.View();
+            }
+
             var productType = Mapper.Map<ProductTypeServiceModel>(model);
             await productService.CreateProductTypeAsync(productType);
+            return this.Redirect("/");
+        }
+        [HttpPost("/Administration/Product/Delete/{id?}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await productService.DeleteProductByIdAsync(id);
+
+            return this.Redirect("/");
+        }
+        [HttpGet("/Administration/Product/Edit/{id?}")]
+        public async Task<IActionResult> Edit(string id)
+        {
+            var product = (await productService.GetProductByIdAsync(id)).To<ProductEditInputModel>();
+
+            var productTypes = await productService.GetAllProductTypes()
+                .Select(x => new ProductTypeViewModel
+                {
+                    Name = x.Name
+                }).ToListAsync();
+
+            ViewData["types"] = productTypes;
+
+            return this.View(product);
+        }
+        [HttpPost("/Administration/Product/Edit")]
+        public async Task<IActionResult> Edit(ProductEditInputModel model)
+        {
+            var productServiceModel = Mapper.Map<ProductServiceModel>(model);
+            await productService.EditProductAsync(productServiceModel);
             return this.Redirect("/");
         }
     }

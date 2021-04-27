@@ -9,5 +9,9 @@
         Task<bool> CreateProductTypeAsync(ProductTypeServiceModel model);
         Task<bool> CreateProductAsync(ProductServiceModel model);
         IQueryable<ProductTypeServiceModel> GetAllProductTypes();
+        IQueryable<ProductServiceModel> GetAllProducts();
+        Task<ProductServiceModel> GetProductByIdAsync(string id);
+        Task<bool> DeleteProductByIdAsync(string id);
+        Task<bool> EditProductAsync(ProductServiceModel model);
     }
 }

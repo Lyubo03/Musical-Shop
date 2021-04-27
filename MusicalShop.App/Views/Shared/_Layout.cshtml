@@ -85,37 +85,36 @@
                 <a href="#" class="fav-nav"><img src="~/img/core-img/favorites.png" alt=""> Favourite</a>
                 <a href="#" class="search-nav"><img src="~/img/core-img/search.png" alt=""> Search</a>
 
-                @if(this.User.IsInRole("Admin"))
+                @if (this.User.IsInRole("Admin"))
                 {
-            <div class="dropdown">
-                <a class="dropdown-toggle" 
-                   id="dropdownMenu" 
-                   data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false">
-                    <img src="~/img/unauthorized-person.png">Admin</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenulink">
-                    <a class="dropdown-item" href="/Administration/Product/Create">Create Product</a>
-                    <a class="dropdown-item-text" href="/Administration/Product/Type/Create">Create Product Type</a>
-                </div>
-            </div>
-                }
+    <div class="dropdown">
+        <a class="dropdown-toggle"
+           id="dropdownMenu"
+           data-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false">
+            <img src="~/img/unauthorized-person.png">Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenulink">
+            <a class="dropdown-item" href="/Administration/Product/Create">Create Product</a>
+            <a class="dropdown-item-text" href="/Administration/Product/Type/Create">Create Product Type</a>
+        </div>
+    </div>}
 
                 @if (!this.User.Identity.IsAuthenticated)
                 {
-                    <a href="/Identity/Account/Register" class="search-nav">
-                        <img src="~/img/edit.png" alt="">Register
-                    </a>
+    <a href="/Identity/Account/Register" class="search-nav">
+        <img src="~/img/edit.png" alt="">Register
+    </a>
 
                     <a href="/Identity/Account/Login" class="fav-nav">
                         <img src="~/img/user.png" alt="">Login
                     </a>}
                 @if (this.User.Identity.IsAuthenticated)
                 {
-                <a href="Identity/Account/Logout" class="fav-nav">
-            <img src="~/img/logout.png" alt="">Logout
-                </a>
-    }
+    <a href="Identity/Account/Logout" class="fav-nav">
+        <img src="~/img/logout.png" alt="">Logout
+    </a>}
             </div>
             <!-- Social Button -->
             <div class="social-info d-flex justify-content-between">
@@ -205,11 +204,12 @@
         </div>
     </footer>
     <!-- ##### Footer Area End ##### -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins.js"></script>
+    <script src="js/jquery/jquery-2.2.4.min.js" asp-append-version="true"></script>
+    <script src="js/popper.min.js" asp-append-version="true"></script>
+    <script src="js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="js/plugins.js" asp-append-version="true"></script>
     <script src="js/active.js"></script>
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>

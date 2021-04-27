@@ -33,8 +33,22 @@ using MusicalShop.Data.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "D:\Musical Shop\MusicalShop.App\Views\_ViewImports.cshtml"
+using MusicalShop.Web.ViewModels.Home;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "D:\Musical Shop\MusicalShop.App\Views\_ViewImports.cshtml"
+using MusicalShop.Web.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3e115b7822d7e981a16a32fe25eec6e694856891", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d1c21277ccf88274f623998cba1b2f7df8f10620", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

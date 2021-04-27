@@ -10,3 +10,5 @@ D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.pdb
 D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Data.Models.dll
 D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Data.Models.pdb
 D:\Musical Shop\MusicalShop.Data\obj\Debug\netcoreapp3.1\MusicalShop.Data.csproj.CopyComplete
+D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Services.Mapping.dll
+D:\Musical Shop\MusicalShop.Data\bin\Debug\netcoreapp3.1\MusicalShop.Services.Mapping.pdb

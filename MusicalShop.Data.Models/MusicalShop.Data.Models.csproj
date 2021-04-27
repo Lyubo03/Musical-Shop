@@ -8,4 +8,8 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.1.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MusicalShop.Services.Mapping\MusicalShop.Services.Mapping.csproj" />
+  </ItemGroup>
+
 </Project>

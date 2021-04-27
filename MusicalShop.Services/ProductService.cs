@@ -1,6 +1,7 @@
 ﻿namespace MusicalShop.Services
 {
     using AutoMapper;
+    using Microsoft.EntityFrameworkCore;
     using MusicalShop.Data;
     using MusicalShop.Data.Models;
     using MusicalShop.Services.Mapping;
@@ -35,11 +36,43 @@
             return result > 0;
         }
 
+        public async Task<bool> DeleteProductByIdAsync(string id)
+        {
+            var product = await context.Products.SingleOrDefaultAsync(x => x.Id == id);
+
+            context.Products.Remove(product);
+            var result = await context.SaveChangesAsync();
+            return result > 0;
+        }
+
+        public async Task<bool> EditProductAsync(ProductServiceModel model)
+        {
+            var product = model.To<Product>();
+            context.Products.Update(product);
+
+            var result = await context.SaveChangesAsync();
+            return result > 0;
+        }
+
+        public IQueryable<ProductServiceModel> GetAllProducts()
+        {
+            var products = context.Products.To<ProductServiceModel>();
+            return products;
+        }
+
         public IQueryable<ProductTypeServiceModel> GetAllProductTypes()
         {
             var productTypes = context.ProductTypes.To<ProductTypeServiceModel>();
 
             return productTypes;
+        }
+
+        public async Task<ProductServiceModel> GetProductByIdAsync(string id)
+        {
+            var product = await this.context.Products.To<ProductServiceModel>()
+                .SingleOrDefaultAsync(x => x.Id == id);
+
+            return product;
         }
     }
 }

@@ -1,26 +1,33 @@
 ﻿namespace MusicalShop.App.Controllers
 {
+    using AutoMapper;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
+    using Microsoft.EntityFrameworkCore;
     using MusicalShop.App.Models;
+    using MusicalShop.Services;
+    using MusicalShop.Web.ViewModels.Home;
     using System.Diagnostics;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private const int NeededProductsToListHomePage = 10;
+        private readonly IProductService productService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IProductService productService)
         {
-            _logger = logger;
+            this.productService = productService;
         }
-
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
+            var products = await productService.GetAllProducts()
+                .Select(x => Mapper.Map<ProductHomeViewModel>(x))
+                .Take(NeededProductsToListHomePage)
+                .ToListAsync();
 
-        public IActionResult Checkout()
-        {
-            return View();
+            return View(products);
         }
 
         public IActionResult Privacy()

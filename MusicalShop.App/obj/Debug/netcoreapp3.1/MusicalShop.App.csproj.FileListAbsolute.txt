@@ -198,3 +198,5 @@ D:\Musical Shop\MusicalShop.App\bin\Debug\netcoreapp3.1\MusicalShop.Services.Mod
 D:\Musical Shop\MusicalShop.App\bin\Debug\netcoreapp3.1\MusicalShop.Services.Models.pdb
 D:\Repo_MusicShop\Musical-Shop\MusicalShop.App\obj\Debug\netcoreapp3.1\MusicalShop.App.dll
 D:\Repo_MusicShop\Musical-Shop\MusicalShop.App\obj\Debug\netcoreapp3.1\MusicalShop.App.pdb
+D:\Musical Shop\MusicalShop.App\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Product\Edit.cshtml.g.cs
+D:\Musical Shop\MusicalShop.App\obj\Debug\netcoreapp3.1\Razor\Views\Product\Details.cshtml.g.cs

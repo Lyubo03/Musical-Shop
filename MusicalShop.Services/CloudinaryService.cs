@@ -31,8 +31,8 @@
                 File = new FileDescription(fileName, memoryStream)
             };
 
-            uploadResult = this.cloudinaryUtility.Upload(uploadParams);
-            return uploadResult?.Url.AbsoluteUri;
+            uploadResult = await this.cloudinaryUtility.UploadAsync(uploadParams);
+            return uploadResult?.SecureUrl.AbsoluteUri;
         }
     }
 }

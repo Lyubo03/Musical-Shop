@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+mfIMX3BUyAlwFQ5CEV9X7Ah2NXIsxIvQwv6i1YppJl3cUUeEWWJDo96/7qqyK96KMPpmYadRNEBmSWubQ3UCg==",
+  "dgSpecHash": "MdSa2Vm+jG5E8aaDzawV2UVnUnAzgy1kIjH03JWrJ+X2jw1kw/CgTE9yuM+ofJELH9bQMR1uMQe8FNWpAiCdhQ==",
   "success": true,
   "projectFilePath": "D:\\Musical Shop\\MusicalShop.Data\\MusicalShop.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lubos\\.nuget\\packages\\automapper\\8.1.1\\automapper.8.1.1.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.14\\microsoft.aspnetcore.cryptography.internal.3.1.14.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.14\\microsoft.aspnetcore.cryptography.keyderivation.3.1.14.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.13\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.13.nupkg.sha512",
