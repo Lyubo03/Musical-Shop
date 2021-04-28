@@ -87,6 +87,37 @@
 
             return this.Redirect("/");
         }
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, ProductEditInputModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                var productTypes = await productService.GetAllProductTypes().Select(x => new ProductTypeViewModel
+                {
+                    Name = x.Name
+                })
+                   .ToListAsync();
+
+                ViewData["types"] = productTypes;
+
+                return this.View(model);
+            }
+
+            var productServiceModel = Mapper.Map<ProductServiceModel>(model);
+
+
+            if (model.Picture != null)
+            {
+                var pictureUrl = await this.cloudinaryService
+                .UploadPictureAsync(model.Picture, model.Name);
+
+                productServiceModel.Picture = pictureUrl;
+
+            }
+
+            await productService.EditProductAsync(id, productServiceModel);
+            return this.Redirect("/");
+        }
         [HttpGet("/Administration/Product/Edit/{id?}")]
         public async Task<IActionResult> Edit(string id)
         {
@@ -102,12 +133,6 @@
 
             return this.View(product);
         }
-        [HttpPost("/Administration/Product/Edit")]
-        public async Task<IActionResult> Edit(ProductEditInputModel model)
-        {
-            var productServiceModel = Mapper.Map<ProductServiceModel>(model);
-            await productService.EditProductAsync(productServiceModel);
-            return this.Redirect("/");
-        }
+
     }
 }

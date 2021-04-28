@@ -19,7 +19,6 @@
         public DateTime ManufacturedOn { get; set; }
         public int Quantity { get; set; }
 
-        [Required]
         public IFormFile Picture { get; set; }
 
         [Required]

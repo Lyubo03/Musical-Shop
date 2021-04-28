@@ -45,10 +45,23 @@
             return result > 0;
         }
 
-        public async Task<bool> EditProductAsync(ProductServiceModel model)
+        public async Task<bool> EditProductAsync(string id, ProductServiceModel model)
         {
-            var product = model.To<Product>();
-            context.Products.Update(product);
+            var productypeFromDb = await context.ProductTypes.FirstOrDefaultAsync(x => x.Name == model.ProductType.Name);
+
+
+            var productFromDb = await context.Products.SingleOrDefaultAsync(x => x.Id == id);
+
+            if (model.Picture != null)
+            {
+                productFromDb.Picture = model.Picture;
+            }
+            productFromDb.Name = model.Name;
+            productFromDb.Price = model.Price;
+            productFromDb.ProductType = productypeFromDb;
+            productFromDb.Quantity = model.Quantity;
+            productFromDb.ManufacturedOn = model.ManufacturedOn;
+            productFromDb.Description = model.Description;
 
             var result = await context.SaveChangesAsync();
             return result > 0;
