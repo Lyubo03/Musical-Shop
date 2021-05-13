@@ -7,12 +7,13 @@
 
     public class MusicalShopDbContext : IdentityDbContext<MusicalShopUser, IdentityRole, string>
     {
-        public MusicalShopDbContext(DbContextOptions options) 
+        public MusicalShopDbContext(DbContextOptions options)
             : base(options)
         {
         }
-
+        public DbSet<Cart> Cart { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
     }
 }

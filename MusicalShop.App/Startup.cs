@@ -53,9 +53,11 @@ namespace MusicalShop.App
 
             services.AddTransient<AdminSeeder>();
             services.AddTransient<RoleSeeder>();
+            services.AddTransient<OrderStatusesSeeder>();
+            services.AddTransient<ProductSeeder>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
-
+            services.AddTransient<ICartService, CartService>();
             //services.AddSingleton<IEmailSender, EmailSender>();
 
             services.AddRazorPages();
@@ -87,7 +89,6 @@ namespace MusicalShop.App
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseResponseCompression();
-
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseDatabaseSeeding();

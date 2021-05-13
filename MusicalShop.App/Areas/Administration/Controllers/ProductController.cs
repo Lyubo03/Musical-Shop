@@ -54,7 +54,6 @@
             var pictureUrl = await this.cloudinaryService.UploadPictureAsync(model.Picture, model.Name);
 
             var productServiceModel = Mapper.Map<ProductServiceModel>(model);
-            productServiceModel.Id = Guid.NewGuid().ToString();
             productServiceModel.Picture = pictureUrl;
 
             await productService.CreateProductAsync(productServiceModel);
@@ -133,6 +132,5 @@
 
             return this.View(product);
         }
-
     }
 }

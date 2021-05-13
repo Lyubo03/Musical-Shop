@@ -16,7 +16,7 @@
             {
                 using (var context = scope.ServiceProvider.GetRequiredService<MusicalShopDbContext>())
                 {
-                    context.Database.MigrateAsync().GetAwaiter().GetResult();
+                    context.Database.Migrate();
 
                     var seeders = Assembly.GetAssembly(typeof(MusicalShopDbContext))
                        .GetTypes()

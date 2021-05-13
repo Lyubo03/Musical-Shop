@@ -11,7 +11,7 @@
     <title>Amado - Furniture Ecommerce Template | Checkout</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="~/img/core-img/favicon.ico">
+    <link rel="icon" href="~/img/33178639.jpg">
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="~/css/core-style.css">
@@ -46,7 +46,7 @@
         <div class="mobile-nav">
             <!-- Navbar Brand -->
             <div class="amado-navbar-brand">
-                <a href="/"><img src="img/core-img/logo.png" alt=""></a>
+                <a href="#"><img src="~/img/33178639.jpg" alt=""></a>
             </div>
             <!-- Navbar Toggler -->
             <div class="amado-navbar-toggler">
@@ -68,10 +68,10 @@
             <nav class="amado-nav">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a asp-controller="Product" asp-action="Shop">Shop</a></li>
                     <li><a href="#">Product</a></li>
-                    <li><a href="#">Cart</a></li>
-                    <li class="active"><a href="$">Checkout</a></li>
+                    <li><a asp-controller="Cart" asp-action="Cart">Cart</a></li>
+                    <li class="active"><a href="#">Checkout</a></li>
                 </ul>
             </nav>
             <!-- Button Group -->
@@ -159,7 +159,7 @@
                     <div class="single_widget_area">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">
-                            <a href="/"><img src="~/img/core-img/logo2.png" alt=""></a>
+                            <a href="/"><img src="~/img/33178639.jpg" alt=""></a>
                         </div>
                         <!-- Copywrite Text -->
                         <p class="copywrite">
@@ -183,13 +183,13 @@
                                             <a class="nav-link" href="/">Home</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Shop</a>
+                                            <a class="nav-link" asp-controller="Product" asp-action="Shop">Shop</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Product</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Cart</a>
+                                            <a class="nav-link" asp-controller="Cart" asp-action="Cart">Cart</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Checkout</a>
@@ -204,11 +204,12 @@
         </div>
     </footer>
     <!-- ##### Footer Area End ##### -->
-    <script src="js/jquery/jquery-2.2.4.min.js" asp-append-version="true"></script>
-    <script src="js/popper.min.js" asp-append-version="true"></script>
-    <script src="js/bootstrap.min.js" asp-append-version="true"></script>
-    <script src="js/plugins.js" asp-append-version="true"></script>
-    <script src="js/active.js"></script>
+    <script src="~/js/jquery/jquery-2.2.4.min.js" asp-append-version="true"></script>
+    <script src="~/js/popper.min.js" asp-append-version="true"></script>
+    <script src="~/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugins.js" asp-append-version="true"></script>
+    <script src="~/js/active.js"  asp-append-version="true"></script>
+    <script src="~/js/cart.js"  asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 
 </body>
