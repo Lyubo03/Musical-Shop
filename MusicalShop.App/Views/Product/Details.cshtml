@@ -79,16 +79,16 @@
                                 <i class="fa fa-caret-up" aria-hidden="true"></i>
                             </span>
                         </div>
-                        @if (this.User.IsInRole("Admin"))
-                        {
+                         @if (this.User.IsInRole("Admin"))
+                         {
                             <div class="mx-3">
                                 <a href="/Administration/Product/Edit/@Model.Id" class="btn btn-info"><img src="~/img/edit.png" alt=""> Edit </a>
                             </div>
 
                             <!-- Button trigger modal -->
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                            <a class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                                 <img src="~/img/delete.png" alt=""> Delete
-                            </button>
+                            </a>
 
                             <!-- Modal -->
                             <div class="modal fade"
@@ -112,7 +112,10 @@
                                     </div>
                                 </div>
                             </div>
-                        }
+                         }
+                        <a class="btn mx-3" href="/Product/Wishlist/@Model.Id">
+                            <img src="~/img/star.png" alt="">
+                        </a>
                     </div>
                     <button type="submit" name="addtocart" class="btn amado-btn">Add To Cart</button>
                 </form>
@@ -134,11 +137,11 @@
     }*@
 </script>
 
-@*<script>
+<script>
         var myModal = document.getElementById('deleteModal')
         var myInput = document.getElementById('myInput')
 
         myModal.addEventListener('shown.bs.modal', function () {
             myInput.focus()
         })
-    </script>*@
+    </script>

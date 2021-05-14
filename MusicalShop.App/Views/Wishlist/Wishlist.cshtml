@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MusicalShop.Web.ViewModels.Wishlist.WishlistViewModel>
+@{
+    ViewData["Title"] = "Wishlist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var wishes = Model.ToList();
+    var quantity = "qty";
+}
+
+<div class="cart-table-area section-padding-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="cart-title mt-50">
+                    <h2>Wishlist</h2>
+                </div>
+
+                <div class="cart-table clearfix">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < wishes.Count; i++)
+                            {
+                                quantity += i;
+                            <tr>
+                                <td class="cart_product_img">
+                                    <a href="@wishes[i].Picture"><img src="@wishes[i].Picture" alt="Product"></a>
+                                </td>
+                                <td class="cart_product_desc">
+                                    <h5>@wishes[i].Name</h5>
+                                </td>
+                                <td class="price">
+                                    <span>@wishes[i].Price</span>
+                                </td>
+                                <td><a href="/Wishlist/Remove/@wishes[i].Id"><img src="~/img/remove.png" /></a></td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>

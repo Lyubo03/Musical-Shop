@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kQ2n5xjE6cIKjmrs3190WlrJjgEM+ong2sWvrGA8AxRANQxdlK8AURqnkdczfEYqFOb7i4+eUTLRBvUqe8k/Bw==",
+  "dgSpecHash": "PKNrZUc3QDtFvXxMI+6TKYaWJqtuYjU1QDan3QINvDWBeTnap7irm9OYMs+IRHAnnpTzghyyIwbssRIt1vz15Q==",
   "success": true,
   "projectFilePath": "D:\\Musical Shop\\MusicalShop.App\\MusicalShop.App.csproj",
   "expectedPackageFiles": [
@@ -71,6 +71,7 @@
     "C:\\Users\\lubos\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

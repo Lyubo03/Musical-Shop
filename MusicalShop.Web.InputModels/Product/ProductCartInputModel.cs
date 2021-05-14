@@ -1,10 +1,8 @@
 ﻿namespace MusicalShop.Web.InputModels.Product
 {
-    using MusicalShop.Services.Mapping;
-    using MusicalShop.Services.Models;
     using System.ComponentModel.DataAnnotations;
 
-    public class ProductCartInputModel : IMapTo<OrderServiceModel>
+    public class ProductCartInputModel
     {
         public string Id { get; set; }
 

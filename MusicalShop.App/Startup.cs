@@ -57,7 +57,6 @@ namespace MusicalShop.App
             services.AddTransient<ProductSeeder>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
-            services.AddTransient<ICartService, CartService>();
             //services.AddSingleton<IEmailSender, EmailSender>();
 
             services.AddRazorPages();

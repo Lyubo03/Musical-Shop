@@ -9,6 +9,5 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
-        public IEnumerable<Cart> Orders { get; set; } = new List<Cart>();
     }
 }
