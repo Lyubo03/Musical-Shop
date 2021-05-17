@@ -4,7 +4,6 @@
     using MusicalShop.Services;
     using MusicalShop.Services.Mapping;
     using MusicalShop.Web.ViewModels.Wishlist;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -43,10 +42,10 @@
         [HttpGet("Wishlist/Remove/{id?}")]
         public async Task<IActionResult> RemoveWish(string id)
         {
-            var cookie = Request.Cookies.Where(x => x.Key.Contains("wish")).SingleOrDefault(x => x.Value == id);
+            var cookie = Request.Cookies.SingleOrDefault(x => x.Value == id);
             var key = cookie.Key;
             Response.Cookies.Delete(key);
-            return this.Redirect("Wishlist");
+            return this.Redirect("/Wishlist/Wishlist");
         }
     }
 }

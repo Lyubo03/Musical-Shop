@@ -9,6 +9,7 @@
     using MusicalShop.Web.ViewModels.Shop;
     using System;
     using System.Threading.Tasks;
+    using System.Linq;
 
     public class ProductController : Controller
     {
@@ -30,13 +31,15 @@
 
             return this.View(productDetailsViewModel);
         }
-
-        public async Task<IActionResult> Shop()
+        [HttpGet]
+        public async Task<IActionResult> Shop([FromQuery] string criteria, decimal? minPrice, decimal? maxPrice, string? brand, string? type)
         {
             var products = productService.GetAllProducts().To<ProductShopViewModel>();
-
             var productTypes = productService.GetAllProductTypes().To<ProductTypeViewModel>();
+            var productBrands = productService.GetAllProductBrands().To<ProductBrandViewModel>();
+
             ViewData["types"] = productTypes;
+            ViewData["brands"] = productBrands;
 
             return this.View(products);
         }
@@ -46,14 +49,23 @@
         {
             if (!this.User.Identity.IsAuthenticated)
             {
-                return this.Redirect("/Identity/Account/Register");
+                return this.Redirect("/Identity/Account/Login");
             }
 
             var key = "product" + Guid.NewGuid().ToString();
             var value = $"Id:{model.Id} Qty:{model.Quantity}";
+
+            var responseCookie = Request.Cookies.FirstOrDefault(x => x.Key.Contains("product") && x.Value.Contains(model.Id));
+
+            if (responseCookie.Key != null)
+            {
+                var qty = int.Parse(responseCookie.Value.Split(new[] { ' ', ':' }, StringSplitOptions.RemoveEmptyEntries)[3]) + model.Quantity;
+                key = responseCookie.Key;
+                value = $"Id:{model.Id} Qty:{qty}";
+            }
+
             var cookieOpts = new CookieOptions();
             cookieOpts.Expires = DateTime.UtcNow.AddDays(7);
-            var cookie = Request.Cookies[key];
             
             Response.Cookies.Append(key, value, cookieOpts);
 
@@ -65,16 +77,20 @@
         {
             if (!this.User.Identity.IsAuthenticated)
             {
-                return this.Redirect("/Identity/Account/Register");
+                return this.Redirect("/Identity/Account/Login");
             }
 
             var key = "wish" + Guid.NewGuid().ToString();
             var value = id;
-            var cookieOpts = new CookieOptions();
-            cookieOpts.Expires = DateTime.UtcNow.AddDays(7);
-            var cookie = Request.Cookies[key];
+            var responseCookie = Request.Cookies.FirstOrDefault(x => x.Value == id);
+            if (responseCookie.Key == null)
+            {
+                var cookieOpts = new CookieOptions();
+                cookieOpts.Expires = DateTime.UtcNow.AddDays(7);
+                var cookie = Request.Cookies[key];
 
-            Response.Cookies.Append(key, value, cookieOpts);
+                Response.Cookies.Append(key, value, cookieOpts);
+            }
 
             return this.Redirect("/");
         }

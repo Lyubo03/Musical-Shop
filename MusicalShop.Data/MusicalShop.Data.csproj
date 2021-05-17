@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210512203901_OrderInit.cs" />
-    <Compile Remove="Migrations\20210512203901_OrderInit.Designer.cs" />
-    <Compile Remove="Migrations\20210513190008_CartInit.cs" />
-    <Compile Remove="Migrations\20210513190008_CartInit.Designer.cs" />
+    <Compile Remove="Migrations\20210517153751_Initialize.cs" />
+    <Compile Remove="Migrations\20210517153751_Initialize.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

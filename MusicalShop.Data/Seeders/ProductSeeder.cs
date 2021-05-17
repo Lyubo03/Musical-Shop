@@ -19,7 +19,7 @@
             {
                 var products = new List<Product>()
             {
-                new Product
+                new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 2589.99m,
@@ -27,10 +27,11 @@
                     Name = "Lâg HyVibe THV30DCE",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1620935444/musical_shop_product_images/lag-tramontane-thv30dce-dreadnought-cutaway-hyvibe_dxsn5q.png",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-1),
-                    ProductTypeId = 31,
+                    ProductTypeId = 50,
+                    ProductBrandId = 3,
                     Quantity = 121
                 },
-                new Product
+                new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 4589.99m,
@@ -38,9 +39,10 @@
                     Name = "Kirk Hammett's ESP KH-2 Ouija guitar",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1619632570/musical_shop_product_images/u5luo3a40yq6xg8l5xh3.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-10),
-                    ProductTypeId = 32,
+                    ProductTypeId = 51,
+                    ProductBrandId = 2,
                     Quantity = 36
-                },new Product
+                },new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 119.99m,
@@ -48,9 +50,10 @@
                     Name = "Ukulele",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1619632532/musical_shop_product_images/gdkgnu8tw0ee0ebblay3.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddMonths(-1),
-                    ProductTypeId = 33,
+                    ProductTypeId = 55,
+                    ProductBrandId = 4,
                     Quantity = 100
-                },new Product
+                },new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 199.99m,
@@ -58,9 +61,11 @@
                     Name = "Fender Ukulele",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1619632408/musical_shop_product_images/t3vmvilc98fftgavtt7r.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-1),
-                    ProductTypeId = 33,
+                    ProductTypeId = 55,
+                    ProductBrandId = 1,
                     Quantity = 55
-                },new Product
+                },
+                new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 3136.99m,
@@ -68,19 +73,23 @@
                     Name = "Acoustic Drums",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1619632446/musical_shop_product_images/qrs9cilcayb9i8oilrcd.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-1).AddMonths(-5),
-                    ProductTypeId = 36,
+                    ProductTypeId = 52,
+                    ProductBrandId = 4,
                     Quantity = 65
-                },new Product
-                {
+                },
+                 new Product()
+                    {
                     Id = Guid.NewGuid().ToString(),
                     Price = 17324.99m,
                     Description = "Among pianos, each size possesses a unique character with distinctive tonal qualities. The impressive tone of the 5’2″ GL-20 baby grand piano is enhanced not only by its longer scale design that provides more bass response, but also by the addition of Dual Duplex Scaling that allows the extreme ends of the piano’s strings to vibrate and produce additional harmonics that enliven tone. Dual Duplex Scaling is an important design element that helps make possible the beautiful singing quality of the GL-20.",
                     Name = "KAWAI GL20",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1619632479/musical_shop_product_images/ppu0wj4mntqnrptypqdy.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-4).AddDays(-2),
-                    ProductTypeId = 34,
+                    ProductTypeId = 54,
+                    ProductBrandId = 5,
                     Quantity = 22
-                },new Product
+                },
+                new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 2589.99m,
@@ -88,9 +97,11 @@
                     Name = "Violin",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1619632375/musical_shop_product_images/yuudpwcps7pm0ncm5pdt.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-1),
-                    ProductTypeId = 38,
+                    ProductTypeId = 53,
+                    ProductBrandId = 5,
                     Quantity = 72
-                },new Product
+                },
+                new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 249.17m,
@@ -98,19 +109,23 @@
                     Name = "MALIBU PLAYER AQUA SPLASH - FENDER",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1620936966/musical_shop_product_images/baavjuwcvphjz5na2ihc_gtcim9.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-1),
-                    ProductTypeId = 31,
+                    ProductTypeId = 50,
+                    ProductBrandId = 1,
                     Quantity = 223
-                },new Product
+                },
+                new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Price = 42.00m,
+                    Price = 4293.00m,
                     Description = "Add more variety to your guitar playing! Capos are the essential tool for playing in different keys and adjusting your sound to different vocal pitches. They are suitable for guitarists of all levels, from beginners to professionals. The Kyser Quick-Change Capo is made of strong, light-weight aluminum. The spring-tensioned Quick-Change clamps firmly to hold intonation, but is quickly and easily released and repositioned without disturbing the tuning. You can operate your Quick-Change comfortably with one hand. You'll find that it doesn't interfere with fingering and the pads won't mark or react with guitar finishes.",
                     Name = "Kyser KG6S Quick-Change Acoustic Guitar Capo - Silver",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1620935444/musical_shop_product_images/lag-tramontane-thv30dce-dreadnought-cutaway-hyvibe_dxsn5q.png",
                     ManufacturedOn = DateTime.UtcNow.AddMonths(-3),
-                    ProductTypeId = 35,
+                    ProductTypeId = 56,
+                    ProductBrandId = 7,
                     Quantity = 213
-                },new Product
+                },
+                new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 2589.99m,
@@ -118,9 +133,11 @@
                     Name = "Electric Guitar",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1619632285/musical_shop_product_images/i2u2i1pwenbbhhp6hbnx.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-1),
-                    ProductTypeId = 32,
+                    ProductTypeId = 51,
+                    ProductBrandId = 2,
                     Quantity = 15
-                },new Product
+                },
+                new Product()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Price = 850.00m,
@@ -128,12 +145,12 @@
                     Name = "FENDER CHAMPION 20W ELECTRIC GUITAR AMPLIFIER",
                     Picture = "https://res.cloudinary.com/dnbwy7p6f/image/upload/v1620936659/musical_shop_product_images/0002110_fender-champion-20w-electric-guitar-amplifier_400_qwbeg3.jpg",
                     ManufacturedOn = DateTime.UtcNow.AddYears(-1).AddMonths(-6),
-                    ProductTypeId = 35,
+                    ProductTypeId = 56,
+                    ProductBrandId = 1,
                     Quantity = 163
                 },
             };
                 await context.Products.AddRangeAsync(products);
-                await context.SaveChangesAsync();
             }
         }
     }

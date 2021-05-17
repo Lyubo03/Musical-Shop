@@ -7,6 +7,8 @@
     using Data.Seeders;
     using System.Linq;
     using System.Reflection;
+    using Microsoft.AspNetCore.Identity;
+    using MusicalShop.Data.Models;
 
     public static class ApplicationBuilderExtension
     {
@@ -17,7 +19,10 @@
                 using (var context = scope.ServiceProvider.GetRequiredService<MusicalShopDbContext>())
                 {
                     context.Database.Migrate();
-
+/*
+                    var seeder = new ProductTypeSeeder(context);
+                    seeder.SeedAsync().GetAwaiter().GetResult();
+*/
                     var seeders = Assembly.GetAssembly(typeof(MusicalShopDbContext))
                        .GetTypes()
                        .Where(type => typeof(ISeeder).IsAssignableFrom(type))
@@ -25,10 +30,10 @@
                        .Select(type => (ISeeder)scope.ServiceProvider.GetRequiredService(type))
                        .ToList();
 
-                   foreach(var seeder in seeders)
-                   {
+                    foreach (var seeder in seeders)
+                    {
                         seeder.SeedAsync().GetAwaiter().GetResult();
-                   }
+                    }
 
                     context.SaveChangesAsync().GetAwaiter().GetResult();
                 }

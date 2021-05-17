@@ -24,7 +24,8 @@
 
         [Required]
         public string ProductType { get; set; }
-
+        [Required]
+        public string ProductBrand { get; set; }
         public string Description { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
@@ -33,6 +34,11 @@
                 .CreateMap<ProductCreateInputModel, ProductServiceModel>()
                 .ForMember(dest => dest.ProductType,
                 opts => opts.MapFrom(origin => new ProductTypeServiceModel { Name = origin.ProductType }));
+
+            configuration
+                .CreateMap<ProductCreateInputModel, ProductServiceModel>()
+                .ForMember(dest => dest.ProductBrand,
+                opts => opts.MapFrom(origin => new ProductTypeServiceModel { Name = origin.ProductBrand }));
         }
     }
 }

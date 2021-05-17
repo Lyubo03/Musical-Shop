@@ -150,37 +150,6 @@ namespace MusicalShop.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MusicalShop.Data.Models.Cart", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("IssuedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IssuerId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IssuerId");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("Cart");
-                });
-
             modelBuilder.Entity("MusicalShop.Data.Models.MusicalShopUser", b =>
                 {
                     b.Property<string>("Id")
@@ -290,6 +259,9 @@ namespace MusicalShop.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("ProductBrandId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductTypeId")
                         .HasColumnType("int");
 
@@ -298,9 +270,27 @@ namespace MusicalShop.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductBrandId");
+
                     b.HasIndex("ProductTypeId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("MusicalShop.Data.Models.ProductBrand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductBrands");
                 });
 
             modelBuilder.Entity("MusicalShop.Data.Models.ProductType", b =>
@@ -311,6 +301,7 @@ namespace MusicalShop.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -369,25 +360,14 @@ namespace MusicalShop.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MusicalShop.Data.Models.Cart", b =>
-                {
-                    b.HasOne("MusicalShop.Data.Models.MusicalShopUser", "Issuer")
-                        .WithMany("Orders")
-                        .HasForeignKey("IssuerId");
-
-                    b.HasOne("MusicalShop.Data.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-
-                    b.HasOne("MusicalShop.Data.Models.OrderStatus", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MusicalShop.Data.Models.Product", b =>
                 {
+                    b.HasOne("MusicalShop.Data.Models.ProductBrand", "ProductBrand")
+                        .WithMany()
+                        .HasForeignKey("ProductBrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MusicalShop.Data.Models.ProductType", "ProductType")
                         .WithMany()
                         .HasForeignKey("ProductTypeId")

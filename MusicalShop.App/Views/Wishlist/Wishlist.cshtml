@@ -21,7 +21,6 @@
                                 <th></th>
                                 <th>Name</th>
                                 <th>Price</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,8 +36,8 @@
                                 </td>
                                 <td class="price">
                                     <span>@wishes[i].Price</span>
+                                    <a href="/Wishlist/Remove/@wishes[i].Id" class="mx-3 my-1"><img src="~/img/remove.png" /></a>
                                 </td>
-                                <td><a href="/Wishlist/Remove/@wishes[i].Id"><img src="~/img/remove.png" /></a></td>
                             </tr>
                             }
                         </tbody>

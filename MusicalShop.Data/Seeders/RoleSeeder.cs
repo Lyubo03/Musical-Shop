@@ -1,7 +1,7 @@
 ﻿namespace MusicalShop.Data.Seeders
 {
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.EntityFrameworkCore;
+    using System.Linq;
     using System.Threading.Tasks;
 
     public class RoleSeeder : ISeeder
@@ -14,7 +14,7 @@
         }
         public async Task SeedAsync()
         {
-            if (!await context.Roles.AnyAsync())
+            if (!context.Roles.Any())
             {
                 await context.Roles.AddAsync(new IdentityRole
                 {

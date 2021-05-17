@@ -4,7 +4,6 @@
     using MusicalShop.Services;
     using MusicalShop.Services.Mapping;
     using MusicalShop.Web.ViewModels.Order;
-    using System.Security.Claims;
     using System;
     using System.Threading.Tasks;
     using System.Linq;
@@ -27,11 +26,19 @@
             }
 
             var products = await GetProductsFromCookies();
+            decimal price = 0;
+            products.ToList().ForEach(p => price += p.Price * p.Quntity);
+            ViewData["price"] = price;
 
             return this.View(products);
         }
+
         public async Task<IActionResult> Checkout()
         {
+            var products = await GetProductsFromCookies();
+            decimal price = 0;
+            products.ToList().ForEach(p => price += p.Price * p.Quntity);
+            ViewData["price"] = price;
             return this.View();
         }
         public async Task<List<CartViewModel>> GetProductsFromCookies()
@@ -41,23 +48,23 @@
 
             foreach (var cookie in cookies)
             {
-                var parametres = cookie.Value.Split(new[] { ' ', ':' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                var parametres = cookie.Value.Split(new[] { ' ', ':' }, StringSplitOptions.RemoveEmptyEntries);
                 var id = parametres[1];
                 var qty = int.Parse(parametres[3]);
 
-                if (products.Where(x => x.Id == id).Any())
-                {
-                    products.SingleOrDefault(x => x.Id == id).Quntity += qty;
-                }
-                else
-                {
-                    var product = (await productService.GetProductByIdAsync(id)).To<CartViewModel>();
-                    product.Quntity = qty;
-                    products.Add(product);
-                }
+                var product = (await productService.GetProductByIdAsync(id)).To<CartViewModel>();
+                product.Quntity = qty;
+                products.Add(product);
             }
 
             return products;
+        }
+        [HttpGet("Cart/Remove/{id?}")]
+        public async Task<IActionResult> Remove(string id)
+        {
+            var key = Request.Cookies.SingleOrDefault(x => x.Value.Contains(id)).Key;
+            Response.Cookies.Delete(key);
+            return this.Redirect("/Cart/Cart");
         }
     }
 }

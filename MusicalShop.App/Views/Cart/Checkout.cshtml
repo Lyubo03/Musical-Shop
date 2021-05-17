@@ -1,7 +1,9 @@
-﻿
+﻿@model MusicalShop.Web.InputModels.Checkout.CheckoutInputModel
 @{
     ViewData["Title"] = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var price = ViewData["price"];
 }
 
 <div class="cart-table-area section-padding-100">
@@ -17,43 +19,40 @@
                     <form action="#" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" id="first_name" value="" placeholder="First Name" required>
+                                <input type="text" class="form-control" id="first_name" asp-for="@Model.FirstName" placeholder="First Name" required>
+                                <span asp-validation-for="@Model.FirstName"></span>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" id="last_name" value="" placeholder="Last Name" required>
+                                <input type="text" class="form-control" id="last_name" asp-for="@Model.LastName" placeholder="Last Name" required>
+                                <span asp-validation-for="@Model.LastName"></span>
                             </div>
                             <div class="col-12 mb-3">
-                                <input type="text" class="form-control" id="company" placeholder="Company Name" value="">
+                                <input type="text" class="form-control" id="company" placeholder="Company Name" asp-for="@Model.CompanyName">
+                                <span asp-validation-for="@Model.CompanyName"></span>
                             </div>
                             <div class="col-12 mb-3">
-                                <input type="email" class="form-control" id="email" placeholder="Email" value="">
+                                <input type="email" class="form-control" id="email" placeholder="Email" asp-for="@Model.Email">
+                                <span asp-validation-for="@Model.Email"></span>
                             </div>
                             <div class="col-12 mb-3">
-                                <select class="w-100" id="country">
-                                    <option value="usa">United States</option>
-                                    <option value="uk">United Kingdom</option>
-                                    <option value="ger">Germany</option>
-                                    <option value="fra">France</option>
-                                    <option value="ind">India</option>
-                                    <option value="aus">Australia</option>
-                                    <option value="bra">Brazil</option>
-                                    <option value="cana">Canada</option>
-                                </select>
+                                <input type="text" class="form-control mb-3" id="street_address" placeholder="Address" asp-for="@Model.Address">
+                                <span asp-validation-for="@Model.Address"></span>
                             </div>
                             <div class="col-12 mb-3">
-                                <input type="text" class="form-control mb-3" id="street_address" placeholder="Address" value="">
-                            </div>
-                            <div class="col-12 mb-3">
-                                <input type="text" class="form-control" id="city" placeholder="Town" value="">
+                                <input type="text" class="form-control" id="city" placeholder="Town" asp-for="@Model.Town">
+                                <span asp-validation-for="@Model.Town"></span>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" id="zipCode" placeholder="Zip Code" value="">
+                                <input type="text" class="form-control" id="zipCode" placeholder="Zip Code" asp-for="@Model.ZipCode">
+                                <span asp-validation-for="@Model.ZipCode"></span>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="number" class="form-control" id="phone_number" min="0" placeholder="Phone No" value="">
+                                <input type="number" class="form-control" id="phone_number" min="0" placeholder="Phone No" asp-for="@Model.PhoneNumber">
+                                <span asp-validation-for="@Model.PhoneNumber"></span>
                             </div>
                             <div class="col-12 mb-3">
-                                <textarea name="comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="Leave a comment about your order"></textarea>
+                                <textarea name="comment" asp-for="@Model.Comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="Leave a comment about your order"></textarea>
+                                <span asp-validation-for="@Model.Comment"></span>
                             </div>
 
                             <div class="col-12">
@@ -74,9 +73,9 @@
                 <div class="cart-summary">
                     <h5>Cart Total</h5>
                     <ul class="summary-table">
-                        <li><span>subtotal:</span> <span>$140.00</span></li>
+                        <li><span>subtotal:</span> <span>$@price</span></li>
                         <li><span>delivery:</span> <span>Free</span></li>
-                        <li><span>total:</span> <span>$140.00</span></li>
+                        <li><span>total:</span> <span>$@price</span></li>
                     </ul>
 
                     <div class="payment-method">
@@ -89,6 +88,7 @@
                         <div class="custom-control custom-checkbox mr-sm-2">
                             <input type="checkbox" class="custom-control-input" id="paypal">
                             <label class="custom-control-label" for="paypal">Paypal <img class="ml-15" src="img/core-img/paypal.png" alt=""></label>
+                            <div id="paypal-button-container"></div>
                         </div>
                     </div>
 
@@ -100,3 +100,64 @@
         </div>
     </div>
 </div>
+
+
+<!-- Include the PayPal JavaScript SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=@ViewBag.ClientId&
+ currency=@ViewBag.CurrencyCode"></script>
+
+<script>
+
+    // This is stored just in case the user cancels the other
+    // or there is an error in the other process.
+    var orderId;
+    // Render the PayPal smart button into #paypal-button-container
+    paypal.Buttons({
+
+        // Set up the transaction
+        createOrder: function (data, actions) {
+            orderId = data.orderID;
+            return fetch('/api/paypal/checkout/order/create/', {
+                method: 'post'
+            }).then(function (res) {
+                return res.json();
+            }).then(function (data) {
+                return data.orderID;
+            });
+        },
+
+        // Finalise the transaction
+        onApprove: function (data, actions) {
+            return fetch('/api/paypal/checkout/order/approved/' + data.orderID, {
+                method: 'post'
+            }).then(function (res) {
+                return actions.order.capture();
+            }).then(function (details) {
+
+                // (Preferred) Notify the server that the transaction id complete
+                // and have an option to display an order completed screen.
+                window.location.replace('/api/paypal/checkout/order/complete/' +
+                                         data.orderID + '/@ViewBag.CurrencyCode');
+
+                // OR
+                // Notify the server that the transaction id complete
+                //httpGet('/api/paypal/checkout/order/complete/' + data.orderID);
+
+                // Show a success message to the buyer
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        },
+
+        // Buyer cancelled the payment
+        onCancel: function (data, actions) {
+            httpGet('/api/paypal/checkout/order/cancel/' + data.orderID);
+        },
+
+        // An error occurred during the transaction
+        onError: function (err) {
+            httpGet('/api/paypal/checkout/order/error/' + orderId + '/' +
+                     encodeURIComponent(err));
+        }
+
+    }).render('#paypal-button-container');
+</script>

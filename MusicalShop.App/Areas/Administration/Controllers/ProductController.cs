@@ -79,6 +79,26 @@
             await productService.CreateProductTypeAsync(productType);
             return this.Redirect("/");
         }
+
+        [HttpGet("/Administration/Product/Brand/Create")]
+        public async Task<IActionResult> CreateBrand()
+        {
+            return this.View("Brand/Create");
+        }
+
+        [HttpPost("/Administration/Product/Brand/Create")]
+        public async Task<IActionResult> CreateBrand(ProductBrandCreateInputModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var productType = Mapper.Map<ProductBrandServiceModel>(model);
+            await productService.CreateProductBrandAsync(productType);
+            return this.Redirect("/");
+        }
+
         [HttpPost("/Administration/Product/Delete/{id?}")]
         public async Task<IActionResult> Delete(string id)
         {
@@ -132,5 +152,6 @@
 
             return this.View(product);
         }
+
     }
 }

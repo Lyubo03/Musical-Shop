@@ -17,6 +17,10 @@
         {
             this.context = context;
         }
+        //Criteria
+        //Categorie
+        //Price 
+        //Brands
 
         public async Task<bool> CreateProductAsync(ProductServiceModel model)
         {
@@ -34,6 +38,16 @@
 
             await context.Products.AddAsync(product);
             var result = await context.SaveChangesAsync();
+            return result > 0;
+        }
+
+        public async Task<bool> CreateProductBrandAsync(ProductBrandServiceModel model)
+        {
+            var productBrand = Mapper.Map<ProductBrand>(model);
+
+            await context.ProductBrands.AddAsync(productBrand);
+            var result = await context.SaveChangesAsync();
+
             return result > 0;
         }
 
@@ -93,25 +107,48 @@
             return result > 0;
         }
 
+        public IQueryable<ProductBrandServiceModel> GetAllProductBrands()
+        {
+            return context.ProductBrands.To<ProductBrandServiceModel>();
+        }
+
         public IQueryable<ProductServiceModel> GetAllProducts()
         {
-            var products = context.Products.To<ProductServiceModel>();
-            return products;
+            return context.Products.To<ProductServiceModel>();
+        }
+
+        public IQueryable<ProductServiceModel> GetAllProductsByBrand(string brand)
+        {
+            return context.Products
+                .Where(x => x.ProductBrand.Name.ToLower() == brand.ToLower())
+                .To<ProductServiceModel>();
+        }
+
+        public IQueryable<ProductServiceModel> GetAllProductsByPrice(decimal min, decimal max)
+        {
+            return context.Products
+                .Where(x => x.Price >= min && x.Price <= max)
+                .OrderBy(x => x.Price)
+                .To<ProductServiceModel>();
+        }
+
+        public IQueryable<ProductServiceModel> GetAllProductsByType(string type)
+        {
+            return context.Products
+                .Where(x => x.ProductType.Name.ToLower() == type.ToLower())
+                .To<ProductServiceModel>();
         }
 
         public IQueryable<ProductTypeServiceModel> GetAllProductTypes()
         {
-            var productTypes = context.ProductTypes.To<ProductTypeServiceModel>();
-
-            return productTypes;
+            return context.ProductTypes.To<ProductTypeServiceModel>();
         }
 
         public async Task<ProductServiceModel> GetProductByIdAsync(string id)
         {
-            var product = await this.context.Products.To<ProductServiceModel>()
+           return await this.context.Products
+                .To<ProductServiceModel>()
                 .SingleOrDefaultAsync(x => x.Id == id);
-
-            return product;
         }
     }
 }

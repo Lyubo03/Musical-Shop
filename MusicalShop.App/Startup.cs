@@ -17,6 +17,7 @@ namespace MusicalShop.App
     using MusicalShop.Services.Models;
     using MusicalShop.Web.InputModels.Product;
     using MusicalShop.Web.ViewModels;
+    using Newtonsoft.Json.Serialization;
     using System.Globalization;
 
     public class Startup
@@ -51,7 +52,12 @@ namespace MusicalShop.App
                 options.EnableForHttps = true;
             });
 
+            /*services.AddMvc()
+         .AddNewtonsoftJson();*/
+
             services.AddTransient<AdminSeeder>();
+            services.AddTransient<ProductTypeSeeder>();
+            services.AddTransient<BrandSeeder>();
             services.AddTransient<RoleSeeder>();
             services.AddTransient<OrderStatusesSeeder>();
             services.AddTransient<ProductSeeder>();

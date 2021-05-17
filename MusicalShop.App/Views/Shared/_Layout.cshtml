@@ -96,7 +96,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenulink">
             <a class="dropdown-item" href="/Administration/Product/Create">Create Product</a>
-            <a class="dropdown-item-text" href="/Administration/Product/Type/Create">Create Product Type</a>
+            <a class="dropdown-item-text" href="/Administration/Product/Type/Create">Create Type</a>
+            <a class="dropdown-item-text" href="/Administration/Product/Brand/Create">Create Brand</a>
+
         </div>
     </div>}
 
@@ -111,7 +113,7 @@
                     </a>}
                 @if (this.User.Identity.IsAuthenticated)
                 {
-    <a href="Identity/Account/Logout" class="fav-nav">
+    <a href="/Identity/Account/Logout" class="fav-nav">
         <img src="~/img/logout.png" alt="">Logout
     </a>}
             </div>
