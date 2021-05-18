@@ -31,8 +31,9 @@
 
             return this.View(productDetailsViewModel);
         }
+
         [HttpGet]
-        public async Task<IActionResult> Shop([FromQuery] string criteria, decimal? minPrice, decimal? maxPrice, string? brand, string? type)
+        public async Task<IActionResult> Shop([FromQuery] string criteria = null)
         {
             var products = productService.GetAllProducts().To<ProductShopViewModel>();
             var productTypes = productService.GetAllProductTypes().To<ProductTypeViewModel>();
@@ -44,6 +45,44 @@
             return this.View(products);
         }
 
+        [HttpGet("Product/Brand/{brand?}")]
+        public async Task<IActionResult> Brand(string brand)
+        {
+            var products = productService.GetAllProductsByBrand(brand).To<ProductShopViewModel>();
+            var productBrands = productService.GetAllProductBrands().To<ProductBrandViewModel>();
+            var productTypes = productService.GetAllProductTypes().To<ProductTypeViewModel>();
+
+            ViewData["types"] = productTypes;
+            ViewData["brands"] = productBrands;
+         
+            return this.View("Shop", products);
+        }
+
+        [HttpGet("Product/Type/{type?}")]
+        public async Task<IActionResult> Type(string type)
+        {
+            var products = productService.GetAllProductsByType(type).To<ProductShopViewModel>();
+            var productBrands = productService.GetAllProductBrands().To<ProductBrandViewModel>();
+            var productTypes = productService.GetAllProductTypes().To<ProductTypeViewModel>();
+
+            ViewData["types"] = productTypes;
+            ViewData["brands"] = productBrands;
+
+            return this.View("Shop", products);
+        }
+
+      /*  [HttpGet("Product/Price/{minPrice?}/{maxPrice?}")]
+        public async Task<IActionResult> Price(decimal minPrice, decimal maxPrice)
+        {
+            var products = productService.GetAllProductsByPrice(minPrice, maxPrice).To<ProductShopViewModel>();
+            var productBrands = productService.GetAllProductBrands().To<ProductBrandViewModel>();
+            var productTypes = productService.GetAllProductTypes().To<ProductTypeViewModel>();
+
+            ViewData["types"] = productTypes;
+            ViewData["brands"] = productBrands;
+
+            return this.View("Shop", products);
+        }*/
         [HttpPost]
         public async Task<IActionResult> AddToCart([FromForm] ProductCartInputModel model)
         {
