@@ -17,8 +17,10 @@
         public string Address { get; set; }
         [Required]
         public int ZipCode { get; set; }
+        public decimal Total { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
         public string Comment { get; set; }
+        public bool IsCashOnDelivery { get; set; } = false;
     }
 }

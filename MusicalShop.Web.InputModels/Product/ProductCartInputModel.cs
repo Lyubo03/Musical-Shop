@@ -7,7 +7,6 @@
         public string Id { get; set; }
 
         [Range(1, int.MaxValue)]
-        public int Quantity { get; set; }
-        public string IssuerId { get; set; }
+        public int Quantity { get; set; } = 1;
     }
 }

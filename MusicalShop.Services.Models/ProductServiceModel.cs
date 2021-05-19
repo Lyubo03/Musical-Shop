@@ -7,9 +7,7 @@
     public class ProductServiceModel : IMapTo<Product>, IMapFrom<Product>
     {
         public string Id { get; set; }
-
         public string Name { get; set; }
-
         public int ProductTypeId { get; set; }
         public ProductTypeServiceModel ProductType { get; set; }
         public int ProductBrandId { get; set; }

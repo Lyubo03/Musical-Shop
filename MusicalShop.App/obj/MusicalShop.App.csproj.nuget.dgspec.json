@@ -97,6 +97,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[106.11.7, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[39.48.0, )"
             }
           },
           "imports": [

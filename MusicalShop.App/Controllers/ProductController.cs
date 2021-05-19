@@ -33,7 +33,7 @@
         }
 
         [HttpGet]
-        public async Task<IActionResult> Shop([FromQuery] string criteria = null)
+        public async Task<IActionResult> Shop()
         {
             var products = productService.GetAllProducts().To<ProductShopViewModel>();
             var productTypes = productService.GetAllProductTypes().To<ProductTypeViewModel>();

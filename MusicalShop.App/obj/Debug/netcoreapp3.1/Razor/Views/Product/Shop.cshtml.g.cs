@@ -54,8 +54,15 @@ using MusicalShop.Web.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "D:\Musical Shop\MusicalShop.App\Views\_ViewImports.cshtml"
+using Microsoft.Extensions.Options;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2bab98dce64cb7e2c86790dd3e91c558ae60144a", @"/Views/Product/Shop.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ec4a51192d51379cac2705f6dcc60e4229bda1a3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4cdaa3ac5acf232ea6786ff4f04be8fc23cc825e", @"/Views/_ViewImports.cshtml")]
     public class Views_Product_Shop : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<ProductShopViewModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Brand", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -139,7 +146,7 @@ WriteAttributeValue("", 479, type.Name, 479, 10, false);
 #line hidden
 #nullable disable
             WriteLiteral("            </ul>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"widget catagory mb-50\">\r\n        <h6 class=\"widget-title mb-30\">Catagories</h6>\r\n\r\n        <div class=\"catagories-menu\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a8558", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a8733", async() => {
                 WriteLiteral("\r\n            <div class=\"widget-desc\">\r\n                <ul>\r\n");
 #nullable restore
 #line 28 "D:\Musical Shop\MusicalShop.App\Views\Product\Shop.cshtml"
@@ -237,9 +244,9 @@ WriteAttributeValue("", 1021, brand.Name, 1021, 11, false);
                         <div class=""sort-by-date d-flex align-items-center mr-15"">
                             <p>Sort by</p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a13731", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a13906", async() => {
                 WriteLiteral("\r\n                                <select name=\"select\" id=\"sortBydate\">\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a14104", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a14279", async() => {
                     WriteLiteral("Date");
                 }
                 );
@@ -255,7 +262,7 @@ WriteAttributeValue("", 1021, brand.Name, 1021, 11, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a15362", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a15537", async() => {
                     WriteLiteral("Newest");
                 }
                 );
@@ -271,7 +278,7 @@ WriteAttributeValue("", 1021, brand.Name, 1021, 11, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a16622", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a16797", async() => {
                     WriteLiteral("Popular");
                 }
                 );
@@ -304,9 +311,9 @@ WriteAttributeValue("", 1021, brand.Name, 1021, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </div>\r\n                        <div class=\"view-product d-flex align-items-center\">\r\n                            <p>View</p>\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a19363", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a19538", async() => {
                 WriteLiteral("\r\n                                <select name=\"select\" id=\"viewProduct\">\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a19737", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a19912", async() => {
                     WriteLiteral("12");
                 }
                 );
@@ -322,7 +329,7 @@ WriteAttributeValue("", 1021, brand.Name, 1021, 11, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a20993", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a21168", async() => {
                     WriteLiteral("24");
                 }
                 );
@@ -338,7 +345,7 @@ WriteAttributeValue("", 1021, brand.Name, 1021, 11, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a22249", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a22424", async() => {
                     WriteLiteral("48");
                 }
                 );
@@ -354,7 +361,7 @@ WriteAttributeValue("", 1021, brand.Name, 1021, 11, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a23505", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bab98dce64cb7e2c86790dd3e91c558ae60144a23680", async() => {
                     WriteLiteral("96");
                 }
                 );

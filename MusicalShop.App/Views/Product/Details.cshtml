@@ -75,7 +75,7 @@
                             </span>
                             <input type="hidden" asp-for="Id">
                             <input type="number" class="qty-text" id="qty" asp-for="Quantity" step="1" min="1" max="300" name="quantity" value="1">
-                            <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;">
+                            <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if(!isNaN( qty )) effect.value++;return false;">
                                 <i class="fa fa-caret-up" aria-hidden="true"></i>
                             </span>
                         </div>
@@ -84,37 +84,16 @@
                             <div class="mx-3">
                                 <a href="/Administration/Product/Edit/@Model.Id" class="btn btn-info"><img src="~/img/edit.png" alt=""> Edit </a>
                             </div>
-                            <!-- Button Trigger for modal -->
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                               <img src="~/img/delete.png"> Delete
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span onclick="document.getElementById('deleteModal').style.display='none'" class="close" title="Close Modal">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                           Are you sure you want to delete @Model.Name
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <a type="button" class="btn btn-danger" href="/Administration/Product/Delete/@Model.Id">Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Button trigger modal -->
+                            <a href="/Administration/Product/Delete/@Model.Id" @*class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">*@>
+                                <img src="~/img/delete.png"> Delete
+                            </a>
                         }
 
                     </div>
                     <button type="submit" name="addtocart" class="btn amado-btn">Add To Cart</button>
                     <a class="btn amado-color" href="/Product/Wishlist/@Model.Id">
-                        <img src="~/img/star.png" alt="">
+                        <img src="~/img/star.png" alt="Wish">
                     </a>
                 </form>
             </div>
@@ -122,8 +101,29 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete @Model.Name?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="/Administration/Product/Delete/@Model.Id" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-    $('#myModal').on('shown.bs.modal', function () {
+    $('#deleteModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
-    })
+    });
 </script>

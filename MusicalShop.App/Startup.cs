@@ -1,6 +1,7 @@
 namespace MusicalShop.App
 {
     using CloudinaryDotNet;
+    using global::Stripe;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
@@ -18,6 +19,7 @@ namespace MusicalShop.App
     using MusicalShop.Web.InputModels.Product;
     using MusicalShop.Web.ViewModels;
     using Newtonsoft.Json.Serialization;
+    using Stripe;
     using System.Globalization;
 
     public class Startup
@@ -39,7 +41,7 @@ namespace MusicalShop.App
                 .AddEntityFrameworkStores<MusicalShopDbContext>()
                 .AddDefaultTokenProviders();
 
-            var cloudinaryCredentials = new Account(
+            var cloudinaryCredentials = new CloudinaryDotNet.Account(
                this.Configuration["Cloudinary:CloudName"],
                this.Configuration["Cloudinary:ApiKey"],
                this.Configuration["Cloudinary:ApiSecret"]);
@@ -52,8 +54,7 @@ namespace MusicalShop.App
                 options.EnableForHttps = true;
             });
 
-            /*services.AddMvc()
-         .AddNewtonsoftJson();*/
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
 
             services.AddTransient<AdminSeeder>();
             services.AddTransient<ProductTypeSeeder>();
@@ -61,8 +62,10 @@ namespace MusicalShop.App
             services.AddTransient<RoleSeeder>();
             services.AddTransient<OrderStatusesSeeder>();
             services.AddTransient<ProductSeeder>();
-            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductService, Services.ProductService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
+            services.AddTransient<IOrderService, Services.OrderService>();
+
             //services.AddSingleton<IEmailSender, EmailSender>();
 
             services.AddRazorPages();
@@ -71,6 +74,8 @@ namespace MusicalShop.App
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

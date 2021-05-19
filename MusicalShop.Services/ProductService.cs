@@ -146,9 +146,11 @@
 
         public async Task<ProductServiceModel> GetProductByIdAsync(string id)
         {
-           return await this.context.Products
+            var products = await this.context.Products
                 .To<ProductServiceModel>()
                 .SingleOrDefaultAsync(x => x.Id == id);
+
+            return products;
         }
     }
 }

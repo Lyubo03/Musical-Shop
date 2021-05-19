@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PKNrZUc3QDtFvXxMI+6TKYaWJqtuYjU1QDan3QINvDWBeTnap7irm9OYMs+IRHAnnpTzghyyIwbssRIt1vz15Q==",
+  "dgSpecHash": "1q+jK0uFkbyQYFu0MZ8vqSlfl5snOiM+ucSKIOIXg1JJoqr97qtAVTAglnF7pGnxLRMYGG/5effpagegkOBufg==",
   "success": true,
   "projectFilePath": "D:\\Musical Shop\\MusicalShop.App\\MusicalShop.App.csproj",
   "expectedPackageFiles": [
@@ -92,6 +92,7 @@
     "C:\\Users\\lubos\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\stripe.net\\39.48.0\\stripe.net.39.48.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

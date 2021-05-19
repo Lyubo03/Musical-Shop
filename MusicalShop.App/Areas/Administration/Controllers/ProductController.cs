@@ -99,8 +99,8 @@
             return this.Redirect("/");
         }
 
-        [HttpPost("/Administration/Product/Delete/{id?}")]
-        public async Task<IActionResult> Delete(string id)
+        [HttpPost]
+        public async Task<IActionResult> Delete([FromForm]string id)
         {
             await productService.DeleteProductByIdAsync(id);
 
