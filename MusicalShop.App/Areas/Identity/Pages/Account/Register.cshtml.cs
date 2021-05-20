@@ -5,17 +5,16 @@
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Text;
-    using System.Text.Encodings.Web;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.UI.Services;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.AspNetCore.WebUtilities;
     using Microsoft.Extensions.Logging;
     using MusicalShop.Data.Models;
+    using MusicalShop.Services;
 
     [AllowAnonymous]
     public class RegisterModel : PageModel
@@ -23,17 +22,19 @@
         private readonly SignInManager<MusicalShopUser> _signInManager;
         private readonly UserManager<MusicalShopUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        private readonly IEmailSender _emailSender;
+        /*private readonly IEmailSender _emailSender;*/
+        private IFacebookAuthService facebookAuthService;
 
         public RegisterModel(
             UserManager<MusicalShopUser> userManager,
             SignInManager<MusicalShopUser> signInManager,
-            ILogger<RegisterModel> logger)/*,
+            ILogger<RegisterModel> logger, IFacebookAuthService facebookAuthService)/*,
             IEmailSender emailSender)*/
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            this.facebookAuthService = facebookAuthService;
             /*_emailSender = emailSender;*/
         }
 
@@ -78,6 +79,47 @@
         {
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+        }
+
+        public async Task<IActionResult> LoginWithFacebookAsync(string accessToken)
+        {
+            var validatedTokenResult = await facebookAuthService.ValidateAccessTokenAsync(accessToken);
+
+            if (validatedTokenResult.Data.IsValid)
+            {
+                /*return new AuthenticationResult
+                {
+                    Errors = new[] { "Invalid Facebook token" }
+                };*/
+            }
+            var userInfo = await facebookAuthService.GetUserInfoAsync(accessToken);
+            var userFromFacebook = await _userManager.FindByEmailAsync(userInfo.Email);
+
+            if (userFromFacebook == null)
+            {
+                var user = new MusicalShopUser
+                {
+                    Email = userFromFacebook.Email,
+                    UserName = userFromFacebook.UserName,
+
+                };
+
+                var createdResult = await _userManager.CreateAsync(user);
+                await _userManager.AddToRoleAsync(user, "User");
+
+                if (!createdResult.Succeeded)
+                {
+
+                    //Make it right
+                    /*return new AuthenticationResult
+                    {
+                    Errors = new[] { "Something went wrong" }
+                    };*/
+                }
+                
+                await _signInManager.SignInAsync(user, isPersistent: false);
+            }
+            this.Redirect("/Identity/Account/Register");
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

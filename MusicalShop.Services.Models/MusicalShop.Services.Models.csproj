@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MusicalShop.Data.Models\MusicalShop.Data.Models.csproj" />
     <ProjectReference Include="..\MusicalShop.Services.Mapping\MusicalShop.Services.Mapping.csproj" />
   </ItemGroup>

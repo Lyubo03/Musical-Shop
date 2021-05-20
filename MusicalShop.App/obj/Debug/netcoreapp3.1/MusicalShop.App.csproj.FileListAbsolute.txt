@@ -208,3 +208,4 @@ D:\Musical Shop\MusicalShop.App\obj\Debug\netcoreapp3.1\Razor\Views\Wishlist\Wis
 D:\Musical Shop\MusicalShop.App\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Product\Brand\Create.cshtml.g.cs
 D:\Musical Shop\MusicalShop.App\bin\Debug\netcoreapp3.1\Stripe.net.dll
 D:\Musical Shop\MusicalShop.App\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Success.cshtml.g.cs
+D:\Musical Shop\MusicalShop.App\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Facebook.dll

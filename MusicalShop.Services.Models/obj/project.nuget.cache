@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4lWMqEetteKSie6MRYLM0hVJarAPBRUCenJmZoJzO1xeBY2bnrQ36dsRvAx/dPmZ43CP151ojSuyjXiVQNP8cQ==",
+  "dgSpecHash": "lzRdQMRgK7rkg/E9j87ndxFh0i5mVN4JTkzngJupuNaAdJZsLQPJ2+TS78i8E6xSppVaSrmVJWuV0iGN+0ZQow==",
   "success": true,
   "projectFilePath": "D:\\Musical Shop\\MusicalShop.Services.Models\\MusicalShop.Services.Models.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\lubos\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.14\\microsoft.extensions.primitives.3.1.14.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\lubos\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\lubos\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",

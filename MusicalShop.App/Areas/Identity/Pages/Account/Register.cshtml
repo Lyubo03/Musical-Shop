@@ -81,6 +81,9 @@
                             </div>
                             <div class="cart-btn mt-100">
                                 <button class="btn amado-btn w-100">Register</button>
+                                <fb:login-button scope="public_profile,email"
+                                                 onlogin="checkLoginState();">
+                                </fb:login-button>
                             </div>
                         </div>
                     </form>
@@ -92,4 +95,36 @@
 </div>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+    //Asynchronously load the SDK on this page
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: '585452715702380',
+      cookie     : true,
+      xfbml      : true,
+        version: 'v10.0'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    //Check if there is an user who is already logged in
+    function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+            $("#authstatus").html("<code>" + JSON.stringify(response, null, 2)  + "</code>");
+        })
+    };
+    </script>
 }

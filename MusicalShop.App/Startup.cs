@@ -18,9 +18,9 @@ namespace MusicalShop.App
     using MusicalShop.Services.Models;
     using MusicalShop.Web.InputModels.Product;
     using MusicalShop.Web.ViewModels;
-    using Newtonsoft.Json.Serialization;
     using Stripe;
     using System.Globalization;
+    using Microsoft.AspNetCore.Authentication.Cookies;
 
     public class Startup
     {
@@ -48,6 +48,17 @@ namespace MusicalShop.App
 
             var cloudinaryUtility = new Cloudinary(cloudinaryCredentials);
             services.AddSingleton(cloudinaryUtility);
+
+           /* services.AddAuthentication(opts =>
+            {
+                opts.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+                
+                .AddFacebook(facebookOptions =>
+                {
+                    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                });*/
 
             services.AddResponseCompression(options =>
             {

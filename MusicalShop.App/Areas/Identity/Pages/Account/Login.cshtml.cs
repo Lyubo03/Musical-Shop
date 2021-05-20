@@ -11,6 +11,10 @@
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.Extensions.Logging;
     using MusicalShop.Data.Models;
+    using Microsoft.AspNetCore.Authentication.Facebook;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using MusicalShop.Services;
+    using Microsoft.Identity.Client;
 
     [AllowAnonymous]
     public class LoginModel : PageModel
@@ -18,7 +22,7 @@
         private readonly SignInManager<MusicalShopUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<MusicalShopUser> signInManager, 
+        public LoginModel(SignInManager<MusicalShopUser> signInManager,
             ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
@@ -64,7 +68,7 @@
 
             ReturnUrl = returnUrl;
         }
-
+       
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = "/";
